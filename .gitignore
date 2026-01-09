@@ -1,0 +1,16 @@
+# Neovim
+.netrwhist
+*~
+*.swp
+*.swo
+*.bak
+
+# Cache / runtime
+.cache/
+undo/
+shada/
+session/
+spell/
+
+# OS
+.DS_Store
