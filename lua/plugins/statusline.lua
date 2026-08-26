@@ -1,9 +1,14 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- FIX 1: Force lualine to wait until the catppuccin plugin is loaded
+  dependencies = { 
+    "nvim-tree/nvim-web-devicons",
+    "catppuccin"
+  },
   opts = {
     options = {
-      theme = "catppuccin",
+      -- FIX 2: Change "catppuccin" to "auto" so it inherits your theme safely
+      theme = "auto",
       section_separators = "",
       component_separators = "",
       globalstatus = true, --statusline spans the whole window
@@ -18,3 +23,4 @@ return {
     }
   }
 }
+

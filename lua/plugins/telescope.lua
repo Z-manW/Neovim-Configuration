@@ -7,10 +7,21 @@ return {
       local telescope = require("telescope")
       local builtin = require("telescope.builtin")
 
+      -- All configurations have been merged safely inside this block
       telescope.setup({
         defaults = {
-          layout_config = { prompt_position = "top" },
+          prompt_prefix = "🔍 ",
+          selection_caret = " ",
+          path_display = { "truncate" },
+          layout_strategy = "flex",
+          layout_config = {
+            prompt_position = "top",
+            horizontal = { preview_width = 0.55 },
+            vertical = { width = 0.9, height = 0.95, preview_height = 0.5 },
+          },
           sorting_strategy = "ascending",
+          winblend = 10,           -- slight transparency
+          borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         },
       })
 
@@ -29,23 +40,7 @@ return {
     cond = function() return vim.fn.executable("make") == 1 end,
   },
 
-  require("telescope").setup({
-    defaults = {
-      prompt_prefix = "🔍 ",
-      selection_caret = " ",
-      path_display = { "truncate" },
-      layout_strategy = "flex",
-      layout_config = {
-        horizontal = { preview_width = 0.55 },
-        vertical = { width = 0.9, height = 0.95, preview_height = 0.5 },
-      },
-      sorting_strategy = "ascending",
-      winblend = 10,           -- slight transparency
-      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    },
-  })
-    
-
+  -- Commented out clean code block left intact
 --  {
 --    "nvim-telescope/telescope-project.nvim",
 --    dependencies = { "nvim-telescope/telescope.nvim" },
